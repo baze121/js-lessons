@@ -8,14 +8,16 @@ https://learn.javascript.ru/array-methods
  *  Создать и вернуть новый пустой массив массив
  */
 function createArray() {
-
+return [];
 }
 
 /**
  * Создать и вернуть массив указанной длинны
  */
 function createEmptyArrayWithLength(len) {
-
+let arr = [];
+arr.length = len;
+return arr;
 }
 
 /**
@@ -23,7 +25,8 @@ function createEmptyArrayWithLength(len) {
  * Вернуть измененный массив
  */
 function addToArray(arr, newValue) {
-
+arr.push(newValue);
+return arr;
 }
 
 /**
@@ -31,7 +34,8 @@ function addToArray(arr, newValue) {
  * Вернуть измененный массив
  */
 function addToStartArray(arr, newValue) {
-
+arr.unshift(newValue);
+return arr;
 }
 
 /**
@@ -40,7 +44,10 @@ function addToStartArray(arr, newValue) {
  *  второй - удаленный элемент массива
  */
 function removeFromArrayFirst(arr) {
-
+let arr1 = []
+arr1[1] = arr.shift()
+arr1[0] = arr
+return arr1;
 }
 
 /**
@@ -50,7 +57,13 @@ function removeFromArrayFirst(arr) {
  *  пример joinArray(['name', 'age'], "+") => 'name+age'
  */
 function joinArray(array, sep) {
+  let arr1 = '';
 
+    for (let i=0; i<array.length; i++) {
+      if (i < array.length - 1)
+      {arr1 += array[i] + sep;} else {arr1 += array[i];}
+    }
+    return arr1;
 }
 
 /**
@@ -59,7 +72,9 @@ function joinArray(array, sep) {
  * @returns {*[]}
  */
 function copyArray(arr) {
-
+arr2 = []
+arr2 = arr.slice()
+return arr2
 }
 
 /**
@@ -69,7 +84,9 @@ function copyArray(arr) {
  * @returns {any[] | string}
  */
 function mergeArray(arr, arr2) {
-
+arr3 = []
+arr3 = arr.concat(arr2)
+return arr3
 }
 
 /**
@@ -78,7 +95,8 @@ function mergeArray(arr, arr2) {
  * filterArray([1,3, 5, 2]) => [3,5]
  */
 function filterArray(arr) {
-
+let f = arr.filter(item => item > 2)
+return f
 }
 
 /**
@@ -93,7 +111,14 @@ function filterArray(arr) {
  * @param fn
  */
 function filterArrayCustom(arr, fn) {
-
+  let arr2 = [];
+  let i=0;
+  for(let item of arr) {
+    if (fn(item)) {
+      arr2[i++] = item;
+    }
+  }
+  return arr2;
 }
 
 /**
@@ -101,7 +126,10 @@ function filterArrayCustom(arr, fn) {
  * Вернуть новый массив.
  */
 function reverseArray(arr) {
-
+  let arr2=[]
+  arr2 = arr.concat()
+  arr2.reverse()
+  return arr2
 }
 
 /**
@@ -112,6 +140,10 @@ function reverseArray(arr) {
  */
 function sortArray(arr) {
 
+  let arr2=[]
+  arr2 = arr.concat()
+  arr2.sort((obj1, obj2) => obj2.age - obj1.age)
+  return arr2
 }
 
 /**
@@ -127,7 +159,16 @@ function sortArray(arr) {
  *  spliceArray([1,2,3,4,5,6,7,8,9]) -> [ [7, 8, 9], [4, 5, 6], [1, 2, 3] ]
  */
 function spliceArray(arr) {
-
+  let arr2=[]
+  let a = arr.length - 3
+      u = arr.length
+      for (let i=0; i < 3; i++) 
+      {
+        arr2[i] = arr.slice(a,u)
+        a-=3;
+        u-=3;
+      }
+      return arr2;
 }
 
 /**
@@ -141,7 +182,7 @@ function spliceArray(arr) {
  * @param obj
  */
 function objectToArray(obj) {
-
+  
 }
 
 /**
